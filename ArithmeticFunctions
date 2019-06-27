@@ -1,0 +1,125 @@
+/ Method for the plus button
+        private void btnPlus_Click(object sender, EventArgs e)
+        {
+            if (txtDisplay.Text != "")
+            {
+                if (lblFormula.Text=="")
+                {
+                    lblFormula.Text += txtDisplay.Text;
+                }
+                if (numTot > 0)
+                {
+                    nextNum = double.Parse(txtDisplay.Text);
+                    numTot = Arithmetic.Arithmetic.Add(numTot, nextNum); // use the MathLib functions for calculation
+                    txtDisplay.Clear();
+                }
+                else
+                {
+                    numTot = double.Parse(txtDisplay.Text);
+                    txtDisplay.Clear();
+                }
+                nextNum = 0.0;
+                plusButtonClicked = true;
+                minusButtonClicked = false;
+                divideButtonClicked = false;
+                multiplyButtonClicked = false;
+                lblFormula.Text += btnPlus.Text;
+            }
+        }
+
+        // Method for the minus button
+        private void btnMinus_Click(object sender, EventArgs e)
+        {
+            if (txtDisplay.Text != "")
+            {
+                if (lblFormula.Text == "")
+                {
+                    lblFormula.Text += txtDisplay.Text;
+                }
+                if (numTot > 0)
+                {
+                    nextNum = double.Parse(txtDisplay.Text);
+                    numTot = Arithmetic.Arithmetic.Sub(numTot, nextNum); // use the MathLib functions for calculation
+                    txtDisplay.Clear();
+                }
+                else
+                {
+                    numTot = double.Parse(txtDisplay.Text);
+                    txtDisplay.Clear();
+                }
+                nextNum = 0.0;
+                plusButtonClicked = false;
+                minusButtonClicked = true;
+                divideButtonClicked = false;
+                multiplyButtonClicked = false;
+                lblFormula.Text += btnMinus.Text;
+            }           
+        }
+
+        // Method for the division button
+        private void btnDevision_Click(object sender, EventArgs e)
+        {
+            if (txtDisplay.Text != "")
+            {
+                if (lblFormula.Text == "")
+                {
+                    lblFormula.Text += txtDisplay.Text;
+                }
+
+                if (numTot > 0)
+                {
+                    nextNum = double.Parse(txtDisplay.Text);
+                    var divResults = Arithmetic.Arithmetic.Div(numTot, nextNum); // use the MathLib functions for calculation
+                    if (divResults.Item2 == false)
+                    {
+                        txtDisplay.Text = "Cannot divide by zero";
+                        return;
+                    }
+                    else
+                    {
+                        numTot = divResults.Item1;
+                        txtDisplay.Clear();
+                    }                  
+                }
+                else
+                {
+                    numTot = double.Parse(txtDisplay.Text);
+                    txtDisplay.Clear();
+                }
+                nextNum = 0.0;
+                plusButtonClicked = false;
+                minusButtonClicked = false;
+                divideButtonClicked = true;
+                multiplyButtonClicked = false;
+                lblFormula.Text += btnDevision.Text;
+            }           
+        }
+
+        // Method for the multiplication button
+        private void btnMulti_Click(object sender, EventArgs e)
+        {
+            if (txtDisplay.Text != "")
+            {
+                if (lblFormula.Text == "")
+                {
+                    lblFormula.Text += txtDisplay.Text;
+                }
+                if (numTot > 0)
+                {
+                    nextNum = double.Parse(txtDisplay.Text);
+                    numTot = Arithmetic.Arithmetic.Mul(numTot, nextNum); // use the MathLib functions for calculation
+                    txtDisplay.Clear();
+                }
+                else
+                {
+                    numTot = double.Parse(txtDisplay.Text);
+                    txtDisplay.Clear();
+                }
+                nextNum = 0.0;
+                plusButtonClicked = false;
+                minusButtonClicked = false;
+                divideButtonClicked = false;
+                multiplyButtonClicked = true;
+                lblFormula.Text += btnMulti.Text;
+            }          
+        }
