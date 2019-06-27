@@ -1,0 +1,107 @@
+// Method for the Square Root button
+        private void btnSqrt_Click(object sender, EventArgs e)
+        {
+            if (txtDisplay.Text != "")
+            {
+                numTot = double.Parse(txtDisplay.Text);
+                var sqrtResults = Algebraic.Algebraic.Sqrt(numTot);
+                if (sqrtResults.Item2 == false)
+                {
+                    txtDisplay.Text = "Invalid Input";
+                    
+                }
+                else
+                {
+                    txtDisplay.Text = sqrtResults.Item1.ToString();
+                }
+            }
+            numTot = 0.0;
+        }
+
+        // Method for the Cube Root  button
+        private void btnCubeRT_Click(object sender, EventArgs e)
+        {
+            if (txtDisplay.Text != "")
+            {
+                numTot = double.Parse(txtDisplay.Text);
+                
+                if (numTot >= 0)
+                {
+                    txtDisplay.Text = Algebraic.Algebraic.CubeRt(numTot).ToString();
+                }
+                else
+                {
+                    txtDisplay.Text = "Invalid Input";
+                }
+            }
+            numTot = 0.0;
+        }
+
+        // Method for the Inverse button
+        private void btbInv_Click(object sender, EventArgs e)
+        {
+            if (txtDisplay.Text != "")
+            {
+                numTot = double.Parse(txtDisplay.Text);
+                if (numTot == 0)
+                {
+                    txtDisplay.Text = "Invalid Input";
+                    return;
+                }
+                else
+                {
+                    txtDisplay.Text = Algebraic.Algebraic.Inv(numTot).ToString();                   
+                }
+            }
+            numTot = 0.0;
+        }
+
+        // Method for the Tan button
+        private void btnTan_Click(object sender, EventArgs e)
+        {
+            if (txtDisplay.Text !="")
+            {
+                numTot = double.Parse(txtDisplay.Text);
+                var tanResults = Trigonometric.Trigonometric.Tan(numTot);
+                if (tanResults.Item2 == false)
+                {
+                    txtDisplay.Text = "Invalid Input";
+                    return;
+                }
+                else
+                {
+                    txtDisplay.Text = tanResults.Item1.ToString();
+                }
+                
+                numTot = 0.0;
+            }          
+        }
+
+        // Method for the Sine button
+        private void btnSin_Click(object sender, EventArgs e)
+        {
+            if (txtDisplay.Text != "")
+            {
+                numTot = double.Parse(txtDisplay.Text);
+                txtDisplay.Text = Trigonometric.Trigonometric.Sin(numTot).ToString();
+                numTot = 0.0;
+            }
+        }
+
+        // Method for the Cosine button
+        private void btnCos_Click(object sender, EventArgs e)
+        {
+            if (txtDisplay.Text != "")
+            {
+                numTot = double.Parse(txtDisplay.Text);
+                if (numTot == 90)
+                {
+                    txtDisplay.Text = "0";
+                }
+                else
+                {
+                    txtDisplay.Text = Trigonometric.Trigonometric.Cos(numTot).ToString();
+                }
+                numTot = 0.0;
+            }
+        }
