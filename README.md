@@ -1,2 +1,2 @@
-# Calculator using C#
+# Calculator
 Create a new calculator
